@@ -16,7 +16,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'sqlite'),
+    'default' => env('DB_CONNECTION', 'tenancy'),
 
     /*
     |--------------------------------------------------------------------------
@@ -35,6 +35,14 @@ return [
             'driver' => 'sqlite',
             'url' => env('DB_URL'),
             'database' => env('DB_DATABASE', database_path('database.sqlite')),
+            'prefix' => '',
+            'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
+        ],
+
+        'tenancy' => [
+            'driver' => 'sqlite',
+            'url' => env('DB_URL'),
+            'database' => env('TENANCY_DB_DATABASE', database_path('tenancy.sqlite')),
             'prefix' => '',
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
         ],
